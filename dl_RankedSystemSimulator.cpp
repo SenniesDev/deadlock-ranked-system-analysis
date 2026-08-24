@@ -4,7 +4,7 @@ using namespace std;
 /*
 Ranks: Initiate (0), Seeker (1), Acolyte (2), Sentinel (3), Mystic (4), Ritualist (5), Emissary (6), Oracle (7), Phantom (8), Ascendant (9), Eternus (10)
 Initiate 1 = 0 points, Eternus 1 = 10 * (1000 * 5 + 2000) = 10 * 7000 = 70000 
-(I capped it at 75000, the floor of E6)
+(I capped it at 77k, the ceiling of a theoretical (non % based) E6)
 */
 
 // Do not change
@@ -14,7 +14,7 @@ int RANK_REQUIREMENT = 2000;
 int SUBRANK_REQUIREMENT = 1000;
 int GAIN = 300;
 int WINSTREAK_BONUSES[] = {70, 90, 110, 130};
-int POINTS_MAX = 75000;
+int POINTS_MAX = 77000;
 vector<string> RANK_NAMES = {"Initiate", "Seeker", "Acolyte", "Sentinel", "Mystic", "Ritualist", "Emissary", "Oracle", "Phantom", "Ascendant", "Eternus"};
 
 // Defaults
@@ -197,7 +197,6 @@ vector<int> simulate(int rank, int subrank, int subrankPoints, float receivedWR,
         //cout << "Match result #" << i << " - LOSS: " << rankToString(t.points, true) << " (" << t.points << ")\n";
         }
     }
-
 
     if(HIGHLEVEL_DEBUG || DEBUG) { cout << "\n<---- SUMMARY OF " << gamesPlayed << " GAMES ---->\nRank Change: " << rankToString(startingPoints, true) << " -> " << rankToString(t.points, true) << ((netRankups > 0) ? " (Net: +" : " (Net: ") << netRankups << ")\nPoints Change: " << startingPoints << " -> " << t.points << " (Net: " << t.points - startingPoints << ")\nWinrate: " << wins << "/" << gamesPlayed << " (" << (float)wins/(float)gamesPlayed << "%)\nWinstreak Bonuses: " << ((winstreakBonuses > 0) ? "+" : "") << winstreakBonuses << "\nErrors (debug): " << ERRORS << "\n\n"; }
     vector<int> result = {startingPoints, startingRank, startingSubrank, startingSubpoints, t.points, t.rank, t.subrank, t.subpoints, wins, totalWinPoints, totalLossPoints, netRankups, winstreakBonuses, shieldsBroken, shieldMitigatedLosses, gamesPlayed};
