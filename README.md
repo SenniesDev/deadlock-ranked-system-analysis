@@ -2,7 +2,7 @@
 
 A statistical overview of (Valve's) ranked system implemented into their upcoming game "Deadlock" as of August 2026.
 
-In the attached Jupyter Notebook I run through at the impact of **shields** (a demotion protection implementation) and **winstreak bonuses**. We can do this by simulating the system under ranging variables with the .cpp file.
+In the attached Jupyter Notebook I run through at the impact of **shields** and **winstreak bonuses**. We can do this by simulating the system under ranging variables with the .cpp file.
 
 This Jupyter Notebook requires you to have the .cpp file on device, if you want to run your own simulations in order to train your own models.
 
